@@ -30,8 +30,10 @@ const dataProps = [
 export const DynamicTab = ({
   value,
   lightColor,
-  darkColor, }: any) => {
-  const [activeTab, setActiveTab] = useState(0)
+  darkColor,
+  valueTab
+}: any) => {
+  const [activeTab, setActiveTab] = useState(valueTab)
 
   const colorScheme = useColorScheme();
 

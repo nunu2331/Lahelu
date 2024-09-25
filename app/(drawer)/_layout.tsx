@@ -3,16 +3,18 @@ import { Drawer } from 'expo-router/drawer';
 import { Button } from 'react-native';
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import CustomDrawerContent from '@/components/CustomDrawerContent';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function Layout() {
     return (
         <GestureHandlerRootView style={{ flex: 1 }}>
-            <Drawer 
-            drawerContent={CustomDrawerContent}
-            screenOptions={{
-                // headerRight: () => <TabBarIcon name={'search'} color={'#0a7ea4'} />,
-                headerShown: false
-            }}>
+            <Drawer
+                drawerContent={CustomDrawerContent}
+                screenOptions={{
+                    // headerRight: () => <TabBarIcon name={'search'} color={'#0a7ea4'} />,
+                    headerShown: false
+                }}>
                 <Drawer.Screen
                     name="(tabs)" // This is the name of the page and must match the url from root
                     options={{

@@ -20,8 +20,8 @@ export default function CustomTabBar({ state, descriptors, navigation }: BottomT
 
     // Custom function to handle "add" button press
     const handleAddPress = () => {
-        // setModalVisible(true);  // Open the modal when the "add" button is pressed
-        router.navigate("/example");
+        setModalVisible(true);  // Open the modal when the "add" button is pressed
+        // router.navigate("/example");
     };
 
     return (

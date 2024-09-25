@@ -7,7 +7,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 
 const Header_Max_Height = 84;
-const Header_Min_Height = 20;
+const Header_Min_Height = 0;
 const Scroll_Distance = Header_Max_Height - Header_Min_Height;
 
 const dataProps = [
@@ -31,7 +31,9 @@ const dataProps = [
 export const DynamicHeader = ({
   value,
   lightColor,
-  darkColor, }: any) => {
+  darkColor,
+  navigation,
+}: any) => {
   const [activeTab, setActiveTab] = useState(0)
 
   const colorScheme = useColorScheme();
@@ -64,13 +66,13 @@ export const DynamicHeader = ({
         width: screenWidth,
       }]}>
         <ThemedView style={styles.leftHeader}>
-          <Ionicons name='menu' size={32} />
+          <Ionicons onPress={() => navigation.openDrawer()} name='menu' size={32} color={themeColor} />
           <ThemedView>
 
-          <Image source={require('../assets/images/lahelu-logo.png')} style={{width: 84, height: '100%'}} resizeMode="contain"/>
+            <Image source={require('../assets/images/lahelu-logo.png')} style={{ width: 84, height: '100%' }} resizeMode="center" />
           </ThemedView>
         </ThemedView>
-        <ThemedText>dsdsds</ThemedText>
+        <Ionicons name='search' size={32} color={themeColor} />
       </ThemedView>
       {/* </ThemedView> */}
     </Animated.View>
@@ -102,11 +104,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     // justifyContent: 'space-between',
     paddingBottom: 1,
+    paddingHorizontal: 16
   },
   leftHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    flex: 1
+    flex: 1,
   },
   childPressable: {
     // backgroundColor: 'white'

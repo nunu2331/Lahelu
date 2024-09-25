@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Text, View, FlatList, SafeAreaView, ActivityIndicator, StyleSheet, Animated } from 'react-native';
+import { Text, View, FlatList, SafeAreaView, ActivityIndicator, StyleSheet, Animated, Pressable } from 'react-native';
 import { MemeImage } from '@/components/MemeImage';
 import { DynamicTab } from '@/components/DynamicTab';
 import CustomVideo from '@/components/CustomVideo';
@@ -9,7 +9,7 @@ import { ThemedText } from '@/components/ThemedText';
 
 const initialPage = 'https://rickandmortyapi.com/api/character';
 
-export default function Home() {
+export default function Home({navigation}) {
   const [loading, setLoading] = useState(false);
   const [items, setItems] = useState([]);
   const [nextPage, setNextPage] = useState('');
@@ -47,9 +47,8 @@ export default function Home() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="light" />
-      <DynamicHeader value={scrollOffsetY} />
+      <DynamicHeader value={scrollOffsetY} navigation={navigation}/>
       <DynamicTab value={scrollOffsetY} />
-
       <FlatList
         data={items}
         scrollEventThrottle={5}
